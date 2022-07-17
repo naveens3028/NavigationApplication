@@ -32,15 +32,7 @@
         android:name="com.example.navigationapplication.ui.details.DetailsFragment"
         android:label="@string/title_details"
         tools:layout="@layout/details_fragment" >
-        <action
-            android:id="@+id/action_navigation_details_to_blankFragment2"
-            app:destination="@id/blankFragment2" />
     </fragment>
 
-    <fragment
-        android:id="@+id/blankFragment2"
-        android:name="com.example.navigationapplication.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
 
 </navigation>

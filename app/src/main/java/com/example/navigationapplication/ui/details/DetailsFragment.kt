@@ -33,9 +33,11 @@ class DetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
         // TODO: Use the ViewModel
 
+/*
         binding.btnsubt.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_navigation_details_to_blankFragment2)
         }
+*/
 
 
     }
