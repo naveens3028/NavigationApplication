@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import com.example.navigationapplication.R
 import com.example.navigationapplication.databinding.DetailsFragmentBinding
 
 class DetailsFragment : Fragment() {
@@ -33,12 +31,9 @@ class DetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
         // TODO: Use the ViewModel
 
-/*
-        binding.btnsubt.setOnClickListener {
+     /*   binding.btnsubt.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_navigation_details_to_blankFragment2)
-        }
-*/
-
+        }*/
 
     }
 

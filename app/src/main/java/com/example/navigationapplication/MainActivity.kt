@@ -10,9 +10,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.navigationapplication.databinding.ActivityMainBinding
+import com.example.navigationapplication.sealed.Example
+import com.example.navigationapplication.sealed.MySealedClass
+import com.example.navigationapplication.sealed.NonSealedClass
 import com.example.navigationapplication.ui.details.DetailsFragment
 
-class MainActivity : AppCompatActivity(), Communicator {
+open class MainActivity : AppCompatActivity(), Communicator {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -34,6 +37,10 @@ class MainActivity : AppCompatActivity(), Communicator {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+       val d = Example()
+        d.myDemo()
+
     }
 
     override fun onPassData() {

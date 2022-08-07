@@ -1,11 +1,13 @@
 package com.example.navigationapplication.ui.home
 
 import android.os.Bundle
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +16,7 @@ import androidx.navigation.Navigation
 import com.example.navigationapplication.Communicator
 import com.example.navigationapplication.R
 import com.example.navigationapplication.databinding.FragmentHomeBinding
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
@@ -43,8 +46,13 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    fun EditText.afterTextChanged() {
-
+    fun EditText.afterTextChangeDelayed( callBack: (result: String) -> Unit) {
+        this.doAfterTextChanged {
+            lifecycleScope.launch {
+                delay(3000)
+                callBack.invoke(it.toString())
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,9 +60,6 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch {
             homeViewModel.fetchAllMovies("fragment")
         }
-
-        binding.textHome.afterTextChanged()
-
 
         fun Circle.perimeter(): Double {
             return 2 * Math.PI * radius

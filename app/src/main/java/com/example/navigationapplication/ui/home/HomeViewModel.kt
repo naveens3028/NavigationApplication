@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.navigationapplication.network.KtorModuleClass
 import io.ktor.client.request.*
 import io.ktor.util.*
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
@@ -20,7 +21,9 @@ class HomeViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            fetchAllMovies("viewModel")
+           val a =  fetchAllMovies("viewModel")
+            val b = async { }
+            val c = launch { }
         }
     }
 
