@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.navigationapplication.R
+import com.example.navigationapplication.Utils.addMandatory
 
 
 class HomeAdapter(private val mList: List<String>) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
@@ -23,7 +24,7 @@ class HomeAdapter(private val mList: List<String>) : RecyclerView.Adapter<HomeAd
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val ItemsViewModel = mList[position]
+        val ItemsViewModel = mList[position].addMandatory()
 
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel

@@ -1,6 +1,7 @@
 package com.example.navigationapplication.sealed
 
 import android.util.Log
+import com.example.navigationapplication.Utils.addMandatory
 import kotlin.math.sign
 
 sealed class MySealedClass {
@@ -26,16 +27,19 @@ open class Example: NonSealedClass() {
         var t1 = 0
         var t2 = 1
 
+        val myData = "Naveen"
+
+      //  Log.e("myText",myData.addMandatory())
         for (i in 0 until 20){
 
             print("$t1  ")
 
+            val sum = t1+t2
             t1 = t2
-            t2 += t1
+            t2 = sum
 
         }
     }
-
 
     open fun stringReversal(){
         val nums = "12345"
