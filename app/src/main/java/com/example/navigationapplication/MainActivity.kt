@@ -25,6 +25,13 @@ open class MainActivity : AppCompatActivity(), Communicator {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Utils.myInlineFun {
+            Log.e("inlineChecker", it)
+            //myDemoFun()
+        }
+
+        Utils.higherOrderFun { myDemoFun() }
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -41,6 +48,10 @@ open class MainActivity : AppCompatActivity(), Communicator {
        val d = Example()
         d.myDemo()
 
+    }
+
+    private fun myDemoFun(){
+        Log.e("inlineChecker","demo")
     }
 
     override fun onPassData() {

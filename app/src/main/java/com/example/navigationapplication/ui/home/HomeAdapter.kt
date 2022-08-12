@@ -1,12 +1,15 @@
 package com.example.navigationapplication.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.navigationapplication.R
 import com.example.navigationapplication.Utils.addMandatory
+import com.example.navigationapplication.Utils.changeDelayListener
 
 
 class HomeAdapter(private val mList: List<String>) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
@@ -26,8 +29,13 @@ class HomeAdapter(private val mList: List<String>) : RecyclerView.Adapter<HomeAd
 
         val ItemsViewModel = mList[position].addMandatory()
 
+
+
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel
+        holder.textView1.changeDelayListener{
+            Log.e("delah", it)
+        }
 
     }
 
@@ -39,5 +47,6 @@ class HomeAdapter(private val mList: List<String>) : RecyclerView.Adapter<HomeAd
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val textView1: EditText = itemView.findViewById(R.id.textView1)
     }
 }
