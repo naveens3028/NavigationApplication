@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.navigationapplication.R
+import com.example.navigationapplication.Utils.click
 import com.example.navigationapplication.databinding.FragmentDashboardBinding
 import kotlinx.coroutines.launch
 
@@ -46,6 +47,10 @@ class DashboardFragment : Fragment() {
         })
 
         dashboardViewModel.start()
+
+        _binding?.textDashboard?.click{
+
+        }
 
         lifecycleScope.launch {
             dashboardViewModel.flow.collect{

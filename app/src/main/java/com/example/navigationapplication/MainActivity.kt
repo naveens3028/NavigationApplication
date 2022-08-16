@@ -48,6 +48,11 @@ open class MainActivity : AppCompatActivity(), Communicator {
        val d = Example()
         d.myDemo()
 
+        Log.e("poppersGenericChecker", Utils.showMessage<Int>(70).toString())
+        Log.e("poppersGenericChecker", Utils.showMessage<String>("hello world"))
+
+
+
     }
 
     private fun myDemoFun(){

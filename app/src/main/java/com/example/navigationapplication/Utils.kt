@@ -6,6 +6,7 @@ import android.text.Spanned
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 
@@ -37,6 +38,20 @@ object Utils {
     fun higherOrderFun(fn: () -> Unit){
         fn.invoke()
         fn()
+    }
+
+    fun View.click(input: () -> Unit){
+        this.setOnClickListener {
+            input()
+        }
+    }
+
+    inline fun <reified T> showMessage(marks: T): T {
+        return when (T::class) {
+            Int::class -> marks as T
+            String::class -> "Congratulations! you scored more than 90%" as T
+            else -> "Please enter valid type" as T
+        }
     }
 
 }
